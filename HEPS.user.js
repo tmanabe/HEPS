@@ -10,7 +10,9 @@
 window.HEPS = top.HEPS || new function () {
 
     var undefined = void 0,
-        ROOT = window.document.body; // Root node of analysis
+        ROOT = window.document.body, // Root node of analysis
+        EXTRACT_PAGE_HEADING = false,
+        EXTRACT_TEXT_OF_IMG  = false;
 
     function MyArray(array) {
 
@@ -177,6 +179,43 @@ window.HEPS = top.HEPS || new function () {
 
     function Replica(node, parentReplica) {
 
+        function chain(elder, younger) {
+
+            elder.next = younger;
+            younger.prev = elder;
+
+        }
+
+        function extractPageHeading(node) {
+
+            var document  = node.ownerDocument,
+                titleNode = document.getElementsByTagName("title")[0],
+                baseNode  = document.getElementsByTagName("base")[0],
+                title,
+                url,
+                locationHref = document.location.href;
+
+            title = titleNode ? titleNode.textContent : "";
+
+            if(baseNode && baseNode.href) {
+
+                url = baseNode.href;
+
+                if(/\/$/.test(url) )
+                    url += new MyArray(locationHref.split("/") ).getLast();
+
+            } else {
+
+                url = locationHref;
+
+            }
+
+            url = tokenizeURL(url);
+
+            return normalizeSpace(url + Replica.RAWSTRING_SEP + title);
+
+        }
+
         function getStyle(node, name, context) {
 
             var getCS  = node.ownerDocument.defaultView.getComputedStyle,
@@ -211,16 +250,17 @@ window.HEPS = top.HEPS || new function () {
 
         }
 
-        function chain(elder, younger) {
-
-            elder.next = younger;
-            younger.prev = elder;
-
-        }
-
         function normalizeSpace(string) {
 
             return string.replace(/\s+/g, " ").replace(/^ | $/g, "");
+
+        }
+
+        function tokenizeURL(url) {
+
+            url = new MyArray(url.split("://") ).getLast();
+
+            return url.split(/\W+/).join(Replica.RAWSTRING_SEP);
 
         }
 
@@ -234,7 +274,18 @@ window.HEPS = top.HEPS || new function () {
 
         } else { // this is root
 
-            this.rawString = "";
+            if(EXTRACT_PAGE_HEADING) {
+
+                this.pageHeadingRange = {"from": 0, "mandatory": true};
+                this.rawString = extractPageHeading(node);
+                this.pageHeadingRange.to = this.rawString.length;
+
+            } else {
+
+                this.rawString = "";
+
+            }
+
             this.id2replica = [];
             this.ancestors = new MyArray([this]);
             this.style = getStyle(node, this.name, "");
@@ -253,9 +304,19 @@ window.HEPS = top.HEPS || new function () {
 
         } else if (this.name === "img") {
 
-            this.content = "<IMG:" +
-                encodeURIComponent(node.getAttribute("src") || "no-src") +
-                ">";
+            if(EXTRACT_TEXT_OF_IMG) {
+
+                this.content = normalizeSpace(
+                    (node["src"] ? tokenizeURL(node["src"]) : "") +
+                    Replica.RAWSTRING_SEP + node["alt"] || "");
+
+            } else {
+
+                this.content = "<IMG:" +
+                    encodeURIComponent(node.getAttribute("src") || "no-src") +
+                    ">";
+
+            }
 
         }
 
@@ -299,6 +360,8 @@ window.HEPS = top.HEPS || new function () {
     };
 
     Replica.RAWSTRING_SEP = " ";
+
+    Replica.NOSRC = "no-src";
 
     Replica.SCAN_CHILDREN_OF = [Node.ELEMENT_NODE, Node.TEXT_NODE];
     // Scan these types of nodes
@@ -656,6 +719,8 @@ window.HEPS = top.HEPS || new function () {
     this.nodeLists   = classify(this.rootReplica);
     this.nodeLists   = sort(this.nodeLists);
     this.rootBlock   = construct(this.rootReplica, this.nodeLists);
+    if(this.rootReplica.pageHeadingRange)
+        this.rootBlock.headings = [ [this.rootReplica.pageHeadingRange] ];
     this.rootBlock.rawString = this.rootReplica.rawString;
     this.json        = JSON.stringify(this.rootBlock, ["from", "to", "mandatory",
         "style", "headings", "contents", "children", "rawString"], "  ");
