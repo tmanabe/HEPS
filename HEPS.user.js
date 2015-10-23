@@ -11,6 +11,7 @@ window.HEPS = top.HEPS || new function () {
 
     var undefined = void 0,
         ROOT = window.document.body, // Root node of analysis
+        EXTRACT_URL = false,
         EXTRACT_PAGE_HEADING = false,
         EXTRACT_TEXT_OF_IMG  = false;
 
@@ -722,8 +723,9 @@ window.HEPS = top.HEPS || new function () {
     if(this.rootReplica.pageHeadingRange)
         this.rootBlock.headings = [ [this.rootReplica.pageHeadingRange] ];
     this.rootBlock.rawString = this.rootReplica.rawString;
+    if(EXTRACT_URL) this.rootBlock.URL = ROOT.ownerDocument.location.href;
     this.json        = JSON.stringify(this.rootBlock, ["from", "to", "mandatory",
-        "style", "headings", "contents", "children", "rawString"], "  ");
+        "style", "headings", "contents", "children", "rawString", "URL"], "  ");
     console.log("HEPS: Complete.");
 
 };
