@@ -45,7 +45,7 @@ end
 
 url2basename.each{ |url, basename|
 # Parallel.each(url2basename,
-#     {:in_threads => Parallel.processor_count}){ |url, basename|
+#     {:in_processes => Parallel.processor_count}){ |url, basename|
 
     json_path = "#{target_dir}/#{basename}.json"
 

@@ -720,12 +720,21 @@ window.HEPS = top.HEPS || new function () {
     this.nodeLists   = classify(this.rootReplica);
     this.nodeLists   = sort(this.nodeLists);
     this.rootBlock   = construct(this.rootReplica, this.nodeLists);
+
     if(this.rootReplica.pageHeadingRange)
         this.rootBlock.headings = [ [this.rootReplica.pageHeadingRange] ];
+
     this.rootBlock.rawString = this.rootReplica.rawString;
-    if(EXTRACT_URL) this.rootBlock.URL = ROOT.ownerDocument.location.href;
-    this.json        = JSON.stringify(this.rootBlock, ["from", "to", "mandatory",
-        "style", "headings", "contents", "children", "rawString", "URL"], "  ");
+
+    if(EXTRACT_URL) {
+
+            this.rootBlock.URL = ROOT.ownerDocument.location.href;
+            this.rootBlock.baseURL = ROOT.baseURI;
+
+    }
+
+    this.json = JSON.stringify(this.rootBlock, ["from", "to", "mandatory", "style",
+        "headings", "contents", "children", "rawString", "URL", "baseURL"], "  ");
     console.log("HEPS: Complete.");
 
 };
