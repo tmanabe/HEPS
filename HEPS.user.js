@@ -3,7 +3,7 @@
 // @namespace   http://www.dl.kuis.kyoto-u.ac.jp/~manabe/
 // @description a HEading-based Page Segmentation algorithm
 // @include     *
-// @version     1.0.0
+// @version     1.0.1
 // @grant       none
 // ==/UserScript==
 
