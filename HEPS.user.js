@@ -3,7 +3,7 @@
 // @namespace   http://www.dl.kuis.kyoto-u.ac.jp/~manabe/
 // @description a HEading-based Page Segmentation algorithm
 // @include     *
-// @version     1.0.2
+// @version     1.0.3
 // @grant       none
 // ==/UserScript==
 
@@ -11,9 +11,9 @@ window.HEPS = top.HEPS || new function () {
 
     var undefined = void 0,
         ROOT = window.document.body, // Root node of analysis
-        EXTRACT_URL = false,
-        EXTRACT_PAGE_HEADING = false,
-        EXTRACT_TEXT_OF_IMG  = false;
+        EXTRACT_URL = true,
+        EXTRACT_PAGE_HEADING = true,
+        EXTRACT_TEXT_OF_IMG  = true;
 
     function MyArray(array) {
 
