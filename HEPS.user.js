@@ -3,7 +3,7 @@
 // @namespace   http://www.dl.kuis.kyoto-u.ac.jp/~manabe/
 // @description a HEading-based Page Segmentation algorithm
 // @include     *
-// @version     1.0.1
+// @version     1.0.2
 // @grant       none
 // ==/UserScript==
 
@@ -196,24 +196,30 @@ window.HEPS = top.HEPS || new function () {
                 url,
                 locationHref = document.location.href;
 
-            title = titleNode ? titleNode.textContent : "";
+            if(titleNode) {
 
-            if(baseNode && baseNode.href) {
-
-                url = baseNode.href;
-
-                if(/\/$/.test(url) )
-                    url += new MyArray(locationHref.split("/") ).getLast();
+                return normalizeSpace(titleNode.textContent);
 
             } else {
 
-                url = locationHref;
+                if(baseNode && baseNode.href) {
+
+                    url = baseNode.href;
+
+                    if(/\/$/.test(url) )
+                        url += new MyArray(locationHref.split("/") ).getLast();
+
+                } else {
+
+                    url = locationHref;
+
+                }
+
+                url = tokenizeURL(url);
+
+                return normalizeSpace(url);
 
             }
-
-            url = tokenizeURL(url);
-
-            return normalizeSpace(url + Replica.RAWSTRING_SEP + title);
 
         }
 
