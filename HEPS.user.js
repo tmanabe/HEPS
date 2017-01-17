@@ -741,6 +741,11 @@ window.HEPS = top.HEPS || new function () {
 
     this.json = JSON.stringify(this.rootBlock, ["from", "to", "mandatory", "style",
         "headings", "contents", "children", "rawString", "URL", "baseURL"], "  ");
-    console.log("HEPS: Complete.");
+
+    if(typeof window.testHEPS == "function") {
+        this.test_status = window.testHEPS();
+    } else {
+        console.log("HEPS: Complete.");
+    }
 
 };
