@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const id2replica = HEPS.rootReplica.id2replica;
+                const children = HEPS.rootBlock.children;
+                const grandChildren = HEPS.rootBlock.children[1].children;
+                if(id2replica[0].getContextBlock() !== HEPS.rootBlock) {
+                    return "Replica#getContextBlock failed (0)."
+                }
+                if(id2replica[4].getContextBlock() !== children[0]) {
+                    return "Replica#getContextBlock failed (4)."
+                }
+                if(id2replica[6].getContextBlock() !== children[1]) {
+                    return "Replica#getContextBlock failed (6)."
+                }
+                if(id2replica[12].getContextBlock() !== grandChildren[0]) {
+                    return "Replica#getContextBlock failed (12)."
+                }
+                if(id2replica[14].getContextBlock() !== grandChildren[1]) {
+                    return "Replica#getContextBlock failed (14)."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body>
+        <h1>
+            3</h1>
+        4 4 4 4 4
+        <h1>
+            6</h1>
+
+        <h2>
+            9</h2>
+
+        <p>
+            12 12 12</p>
+        <h2>
+            14</h2>
+        15 15 15
+        </body>
+</html>

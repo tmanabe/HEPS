@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const subject = new HEPS.MyArray([
+                    1,
+                    2,
+                    3,
+                ]);
+                if (HEPS.MyArray === subject.toArray().constructor) {
+                    return "MyArray#toArray returns MyArray."
+                }
+                if ('1,2,3' !== subject.toArray().toString()) {
+                    return "MyArray#toArray failed."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body></body>
+</html>

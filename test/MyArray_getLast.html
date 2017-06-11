@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const subject = new HEPS.MyArray([
+                    "a",
+                    "b",
+                    "c",
+                ]);
+                if ("c" !== subject.getLast()) {
+                    return "MyArray#getLast() failed."
+                }
+                if ("b" !== subject.getLast(-1)) {
+                    return "MyArray#getLast(-1) failed."
+                }
+                if ("a" !== subject.getLast(-2)) {
+                    return "MyArray#getLast(-2) failed."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body></body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const subject = HEPS.rootReplica[0][0][0][0][0];
+                if (subject.style.color !== "rgb(255, 0, 0)") {
+                    return "Replica getStyle failed (color)."
+                }
+                if (subject.style.fontSize !== 48) {
+                    return "Replica getStyle failed (fontSize)."
+                }
+                if (subject.style.fontStyle !== "italic") {
+                    return "Replica getStyle failed (fontStyle)."
+                }
+                if (subject.style.fontWeight !== 700) {
+                    return "Replica getStyle failed (fontWeight)."
+                }
+                if (subject.style.textDecoration !== "underline") {
+                    return "Replica getStyle failed (textDecoration)."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body>
+        <font color="#ff0000" size="7">
+            <i>
+                <b>
+                    <u>
+                        Dummy
+                    </u>
+                </b>
+            </i>
+        </font>
+    </body>
+</html>

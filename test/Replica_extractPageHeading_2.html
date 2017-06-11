@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const expect = "test Replica_extractPageHeading_2 html";
+                if (HEPS.rootBlock.rawString.indexOf(expect) < 0) {
+                    return "Replica extractPageHeading failed."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body></body>
+</html>

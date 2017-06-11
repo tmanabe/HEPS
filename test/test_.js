@@ -26,7 +26,7 @@ page.open(html_path, function(status) {
         return window.HEPS.test_status;
     });
     if(status !== "success") {
-        console.log("Test failed at " + html_path + " by " + status);
+        console.log(status);
         phantom.exit(1);
     }
     phantom.exit(0);

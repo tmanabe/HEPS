@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const subject = new HEPS.MyArray([
+                    1,
+                    2,
+                    3,
+                ]);
+                if ('1,2,3' !== subject.toString()) {
+                    return "MyArray#toString failed."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body></body>
+</html>

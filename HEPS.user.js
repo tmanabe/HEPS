@@ -97,6 +97,12 @@ window.HEPS = top.HEPS || new function () {
 
         };
 
+        this.toString = function() {
+
+            return this.toArray().toString();
+
+        }
+
         this.getFrontNodes = function() { // Section 4.3.1
 
             var targetArray = this,
@@ -177,6 +183,8 @@ window.HEPS = top.HEPS || new function () {
         return this;
 
     }).apply(Object.create(Array.prototype) );
+
+    this.MyArray = MyArray;
 
     function Replica(node, parentReplica) {
 
@@ -314,13 +322,13 @@ window.HEPS = top.HEPS || new function () {
             if(EXTRACT_TEXT_OF_IMG) {
 
                 this.content = normalizeSpace(
-                    (node["src"] ? tokenizeURL(node["src"]) : "") +
+                    (node["src"] ? tokenizeURL(node.getAttribute("src")) : "") +
                     Replica.RAWSTRING_SEP + node["alt"] || "");
 
             } else {
 
                 this.content = "<IMG:" +
-                    encodeURIComponent(node.getAttribute("src") || "no-src") +
+                    encodeURIComponent(node.getAttribute("src") || Replica.NOSRC) +
                     ">";
 
             }
@@ -481,6 +489,8 @@ window.HEPS = top.HEPS || new function () {
         return this;
 
     }).apply(Object.create(MyArray.prototype) );
+
+    this.Replica = Replica;
 
     function Block(nodeArray, heading) {
 
@@ -743,7 +753,7 @@ window.HEPS = top.HEPS || new function () {
         "headings", "contents", "children", "rawString", "URL", "baseURL"], "  ");
 
     if(typeof window.testHEPS == "function") {
-        this.test_status = window.testHEPS();
+        this.test_status = window.testHEPS(this);
     } else {
         console.log("HEPS: Complete.");
     }

@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const subject = new HEPS.MyArray([
+                    {
+                        "from": 123,
+                        "to": 456,
+                    },
+                    {
+                        "from": 456,
+                        "to": 789,
+                    },
+                ]);
+                if (subject.toRange().from !== 123 || subject.toRange().to !== 789) {
+                    return "MyArray#toRange failed."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body></body>
+</html>

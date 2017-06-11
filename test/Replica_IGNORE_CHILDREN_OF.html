@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const id2replica = HEPS.rootReplica.id2replica;
+                if(id2replica.length !== 6) {
+                    return "Error of Replica.IGNORE_CHILDREN_OF."
+                } // body, blank, iframe, text, style, blank
+                return "success";
+            }
+        </script>
+    </head>
+    <body>
+        <iframe>iframe</iframe>
+        body
+        <style>style</style>
+    </body>
+</html>

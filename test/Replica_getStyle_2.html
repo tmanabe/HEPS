@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                if (HEPS.rootReplica[0].style.offsetHeight !== 50) {
+                    return "Replica getStyle failed (offsetHeight)."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body><img height="50px"></body>
+</html>

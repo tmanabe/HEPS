@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const root = HEPS.rootReplica;
+                if (root[0].prev) {
+                    return "Replica chain failed (0)."
+                }
+                if (root[0].next !== root[1]) {
+                    return "Replica chain failed (1)."
+                }
+                if (root[1].prev !== root[0]) {
+                    return "Replica chain failed (2)."
+                }
+                if (root[1].next !== root[2]) {
+                    return "Replica chain failed (3)."
+                }
+                if (root[2].prev !== root[1]) {
+                    return "Replica chain failed (4)."
+                }
+                if (root[2].next) {
+                    return "Replica chain failed (5)."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body>
+        <div></div>
+        <div></div>
+        <div></div>
+    </body>
+</html>

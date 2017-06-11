@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                if (HEPS.rootReplica[0].style.color !== "rgb(255, 0, 0)") {
+                    return "Replica getStyle failed (color)."
+                }
+                if (HEPS.rootReplica[0].style.fontSize !== 14) {
+                    return "Replica getStyle failed (fontSize)."
+                }
+                if (HEPS.rootReplica[0].style.fontStyle !== "italic") {
+                    return "Replica getStyle failed (fontStyle)."
+                }
+                if (HEPS.rootReplica[0].style.fontWeight !== 400) {
+                    return "Replica getStyle failed (fontWeight)."
+                }
+                if (HEPS.rootReplica[0].style.offsetHeight !== "null") {
+                    return "Replica getStyle failed (offsetHeight)."
+                }
+                const expect0 = "/body/#text";
+                if (HEPS.rootReplica[0].style.tagPath !== expect0) {
+                    return "Replica getStyle failed (tagPath)."
+                }
+                const expect1 = "underline";
+                if (HEPS.rootReplica[0].style.textDecoration !== expect1) {
+                    return "Replica getStyle failed (textDecoration)."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body style="color: red; font-size: 10.5pt; font-style: italic; font-weight: normal; text-decoration: underline">Dummy</body>
+</html>

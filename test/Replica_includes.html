@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const id2replica = HEPS.rootReplica.id2replica;
+                if(!id2replica[2].includes(id2replica[3])) {
+                    return "Replica#includes failed (0)."
+                }
+                if(id2replica[2].includes(id2replica[4])) {
+                    return "Replica#includes failed (1)."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body>
+
+        <h1>
+            3</h1>
+        4 4 4 4 4
+</html>

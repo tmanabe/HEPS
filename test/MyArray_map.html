@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const expect = new HEPS.MyArray([
+                    1,
+                    4,
+                    9,
+                ]);
+                const subject = new HEPS.MyArray([
+                    1,
+                    2,
+                    3,
+                ]);
+                function func(r, i, a) {
+                    return r * r;
+                }
+                if (HEPS.MyArray !== subject.map(func).constructor) {
+                    return "MyArray#map does not return MyArray."
+                }
+                if (expect.toString() !== subject.map(func).toString()) {
+                    return "MyArray#map failed."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body></body>
+</html>

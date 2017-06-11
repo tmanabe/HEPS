@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const expect = new HEPS.MyArray([
+                    "a",
+                    "b",
+                    "c",
+                    "a",
+                    "b",
+                    "c",
+                ]).toString();
+                const subject = new HEPS.MyArray([
+                    "a",
+                    "b",
+                    "c",
+                ]);
+                if (HEPS.MyArray !== subject.concat(subject).constructor) {
+                    return "MyArray#concat does not return MyArray."
+                }
+                if (expect !== subject.concat(subject).toString()) {
+                    return "MyArray#concat failed."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body></body>
+</html>

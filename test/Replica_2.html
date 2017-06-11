@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                if(HEPS.rootReplica[0].content) {
+                    return "Construction of Replica failed (0)."
+                }
+                if(HEPS.rootReplica[1].content !== "alt") {
+                    return "Construction of Replica failed (1)."
+                }
+                if(HEPS.rootReplica[2].content !== "src") {
+                    return "Construction of Replica failed (2)."
+                }
+                if(HEPS.rootReplica[3].content !== "src alt") {
+                    return "Construction of Replica failed (3)."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body>
+        <img>
+        <img alt="alt">
+        <img src="src">
+        <img alt="alt" src="src">
+    </body>
+</html>

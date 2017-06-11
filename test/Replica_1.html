@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const subject = HEPS.rootReplica[0];
+                if (subject.root.id2replica[1] !== subject) {
+                    return "Construction of Replica failed (id2replica)."
+                }
+                if (subject.parent !== HEPS.rootReplica) {
+                    return "Construction of Replica failed (parent)."
+                }
+                if (subject.ancestors[0] !== subject) {
+                    return "Construction of Replica failed (ancestors 0)."
+                }
+                if (subject.ancestors[1] !== HEPS.rootReplica) {
+                    return "Construction of Replica failed (ancestors 1)."
+                }
+                if (subject.root !== HEPS.rootReplica) {
+                    return "Construction of Replica failed (root)."
+                }
+                if (subject.depth !== 2) {
+                    return "Construction of Replica failed (depth)."
+                }
+                if (subject.id !== 1) {
+                    return "Construction of Replica failed (id)."
+                }
+                if (subject !== HEPS.rootReplica.id2replica[1]) {
+                    return "Construction of Replica failed (id2replica)."
+                }
+                if (!subject.isText) {
+                    return "Construction of Replica failed (isText)."
+                }
+                if (subject.content !== "body") {
+                    return "Construction of Replica failed (content)."
+                }
+                if (subject.from !== 6) {
+                    return "Construction of Replica failed (from)."
+                }
+                if (subject.hasIDfrom !== 1) {
+                    return "Construction of Replica failed (hasIDfrom)."
+                }
+                if (subject.length !== 0) {
+                    return "Construction of Replica failed (length)."
+                }
+                if (subject.to !== 10) {
+                    return "Construction of Replica failed (to)."
+                }
+                if (subject.hasIDto !== 1) {
+                    return "Construction of Replica failed (hasIDto)."
+                }
+                return "success";
+            }
+        </script>
+        <title>title</title>
+    </head>
+    <body>body</body>
+</html>

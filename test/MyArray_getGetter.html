@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const getter = HEPS.MyArray.getGetter("key");
+                const subject = {
+                    "key": "value",
+                };
+                if (getter(subject) !== "value") {
+                    return "MyArray#getGetter failed.";
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body></body>
+</html>

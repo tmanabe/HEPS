@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const subject = new HEPS.MyArray([
+                    {},
+                    {},
+                    {},
+                ]);
+                subject.setEvery("key", "value");
+                if (subject.some(function(r, i, a){
+                    return r["key"] !== "value"
+                })) {
+                    return "MyArray#setEvery failed."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body></body>
+</html>

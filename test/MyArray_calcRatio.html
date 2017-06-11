@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const subject = new HEPS.MyArray([
+                    "a",
+                    "b",
+                    "c",
+                ]);
+                if(0 / 3 !== subject.calcRatio(function(r, i, a){
+                    return r === "d";
+                })) {
+                    return "MyArray#calcRatio failed (0).";
+                }
+                if(1 / 3 !== subject.calcRatio(function(r, i, a){
+                    return r === "b";
+                })) {
+                    return "MyArray#calcRatio failed (1).";
+                }
+                if(2 / 3 !== subject.calcRatio(function(r, i, a){
+                    return i <= 1;
+                })) {
+                    return "MyArray#calcRatio failed (2).";
+                }
+                if(3 / 3 !== subject.calcRatio(function(r, i, a){
+                    return a === subject;
+                })) {
+                    return "MyArray#calcRatio failed (3).";
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body></body>
+</html>

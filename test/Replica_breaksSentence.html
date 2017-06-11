@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const id2replica = HEPS.rootReplica.id2replica;
+                if(id2replica[2].breaksSentence()) {
+                    return "Replica#breaksSentence failed (0)."
+                }
+                if(id2replica[5].breaksSentence()) {
+                    return "Replica#breaksSentence failed (1)."
+                }
+                if(id2replica[8].breaksSentence()) {
+                    return "Replica#breaksSentence failed (2)."
+                }
+                if(!id2replica[11].breaksSentence()) {
+                    return "Replica#breaksSentence failed (3)."
+                }
+                if(id2replica[14].breaksSentence()) {
+                    return "Replica#breaksSentence failed (4)."
+                }
+                if(id2replica[17].breaksSentence()) {
+                    return "Replica#breaksSentence failed (5)."
+                }
+                if(id2replica[21].breaksSentence()) {
+                    return "Replica#breaksSentence failed (6)."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body>
+
+        <h1>
+            3</h1>
+        4
+        <h2>
+            6</h2>
+
+        <h3>
+            9</h3>
+        10
+        <h4>
+            12</h4>
+        13
+        <h5>
+            15</h5>
+
+        <h6>
+            18</h6>
+        19
+        <p>
+            21</p>
+        </body>
+</html>

@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const subject = HEPS.rootReplica;
+                if ("body" !== subject.name) {
+                    return "Construction of Replica failed (name)."
+                }
+                if (!subject.pageHeadingRange ||
+                    subject.pageHeadingRange.to !== 5) {
+                    return "Construction of Replica failed (pageHeadingRange)."
+                }
+                if (subject.rawString !== "title body") {
+                    return "Construction of Replica failed (rawString)."
+                }
+                if (subject.id2replica[0] !== subject) {
+                    return "Construction of Replica failed (id2replica)."
+                }
+                if (subject.ancestors[0] !== subject) {
+                    return "Construction of Replica failed (ancestors)."
+                }
+                if (subject.root !== subject) {
+                    return "Construction of Replica failed (root)."
+                }
+                if (subject.depth !== 1) {
+                    return "Construction of Replica failed (depth)."
+                }
+                if (subject.id !== 0) {
+                    return "Construction of Replica failed (id)."
+                }
+                if (subject.from !== 6) {
+                    return "Construction of Replica failed (from)."
+                }
+                if (subject.hasIDfrom !== 0) {
+                    return "Construction of Replica failed (hasIDfrom)."
+                }
+                if (subject.length !== 1) {
+                    return "Construction of Replica failed (length)."
+                }
+                if (subject.to !== 10) {
+                    return "Construction of Replica failed (to)."
+                }
+                if (subject.hasIDto !== 1) {
+                    return "Construction of Replica failed (hasIDto)."
+                }
+                return "success";
+            }
+        </script>
+        <title>title</title>
+    </head>
+    <BODY>body</BODY>
+</html>

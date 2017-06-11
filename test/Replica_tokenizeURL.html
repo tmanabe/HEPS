@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const expect = "u p s d t b_n e";
+                if (HEPS.rootBlock.rawString !== expect) {
+                    return "Replica tokenizeURL failed."
+                }
+                return "success";
+            }
+        </script>
+        <base href="https://u:p@s.d.t/!#/b_n.e">
+    </head>
+    <body></body>
+</html>

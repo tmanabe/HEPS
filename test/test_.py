@@ -21,7 +21,7 @@ for html_path in glob(path.join(dir, '*.html')):
                 'phantomjs',
                 path.join(dir, 'test_.js'),
                 path.join(dir, '..', 'HEPS.user.js'),
-                'file:///' + html_path
+                'file:///' + html_path.replace(path.sep, '/'),
             ]
             cp = subprocess.run(cmd, shell=True, stdout=PIPE, stderr=PIPE)
             self.assertEqual(b'', cp.stdout)
