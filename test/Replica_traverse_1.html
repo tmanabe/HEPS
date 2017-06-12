@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                function func(r) {
+                    stack.push(r);
+                    return false;
+                }
+                const stack = [];
+                HEPS.rootReplica.traverse(func);
+                if(1 !== stack.length) {
+                    return "Replica#traverse failed."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body>body<h1>h1</h1></body>
+</html>

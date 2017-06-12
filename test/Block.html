@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>title</title>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const subject = HEPS.rootBlock.children[0];
+                if(subject.nodeArray[0].id !== 2 ||
+                   subject.nodeArray[1].id !== 5) {
+                    return "Construction of Block failed (0)."
+                }
+                if(subject.nodeArray[0].isPartOf !== subject ||
+                   subject.nodeArray[1].isPartOf !== subject) {
+                    return "Construction of Block failed (1)."
+                }
+                if(subject.contents[0].from !== 6 ||
+                   subject.contents[0].to !== 20) {
+                    return "Construction of Block failed (2)."
+                }
+                if(0 < subject.children.length) {
+                    return "Construction of Block failed (3)."
+                }
+                if("rgb(255, 0, 0);14;italic;400;null;/body/h1/#text;underline" !== subject.style) {
+                    return "Construction of Block failed (4)."
+                }
+                if(subject.heading.from !== 6 ||
+                   subject.heading.to !== 10) {
+                    return "Construction of Block failed (5)."
+                }
+                if(subject.headings[0][0] !== subject.heading) {
+                    return "Construction of Block failed (6)."
+                }
+                if(!HEPS.rootReplica.hasHeading) {
+                    return "Construction of Block failed (7)."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body>
+
+        <h1 style="color: red; font-size: 10.5pt; font-style: italic; font-weight: normal; text-decoration: underline">
+            h1-0</h1>
+
+        <p>
+            h1-0-body</p>
+
+        <h1 style="color: red; font-size: 10.5pt; font-style: italic; font-weight: normal; text-decoration: underline">
+            h1-1</h1>
+
+        <p>
+            h1-1-body</p>
+
+    </body>
+</html>

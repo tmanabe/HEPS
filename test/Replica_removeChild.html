@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const id2replica = HEPS.rootReplica.id2replica;
+                id2replica[0].removeChild(id2replica[2]);
+                if(id2replica[0][0] !== id2replica[1] ||
+                   id2replica[0][1] !== id2replica[3]) {
+                    return "Replica#removeChild failed."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body><a></a><b></b><i></i></body>
+</html>

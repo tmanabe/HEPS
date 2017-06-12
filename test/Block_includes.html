@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const children = HEPS.rootBlock.children;
+                if(!HEPS.rootBlock.includes(children[0].nodeArray[0])) {
+                    return "Block#includes failed (0)."
+                }
+                if(children[0].includes(children[1].nodeArray[0])) {
+                    return "Block#includes failed (1)."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body>
+        <h1>h1-0</h1>
+        <p>h1-0-body</p>
+        <h1>h1-1</h1>
+        <p>h1-1-body</p>
+    </body>
+</html>

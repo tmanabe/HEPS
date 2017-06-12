@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const id2replica = HEPS.rootReplica.id2replica;
+                const parent = id2replica[0];
+                const merger = id2replica[2];
+                const mergee = id2replica[5];
+                merger.merge(mergee, HEPS.rootReplica.rawString);
+                if(merger.from !== 6) {
+                    return "Replica#merge failed (0).";
+                }
+                if(merger.to !== 19) {
+                    return "Replica#merge failed (1).";
+                }
+                if(merger.content !== "merger mergee") {
+                    return "Replica#merge failed (2).";
+                }
+                if(merger.hasIDfrom !== 2) {
+                    return "Replica#merge failed (3).";
+                }
+                if(merger.hasIDto !== 6) {
+                    return "Replica#merge failed (4).";
+                }
+                if(0 <= mergee.indexOf(parent)) {
+                    return "Replica#merge failed (5).";
+                }
+                return "success";
+            }
+        </script>
+        <title>title</title>
+    </head>
+    <body>
+        <h1>merger</h1>
+        <h1>mergee</h1>
+    </body>
+</html>

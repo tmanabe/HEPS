@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const actual = HEPS.rootReplica.toText(HEPS.rootBlock.rawString);
+                if("#text" !== actual.name) {
+                    return "Replica#toText failed (0)."
+                }
+                if(!actual.isText) {
+                    return "Replica#toText failed (1)."
+                }
+                if("body h1" !== actual.content) {
+                    return "Replica#toText failed (2)."
+                }
+                if(0 !== actual.length) {
+                    return "Replica#toText failed (3)."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body>body<h1>h1</h1></body>
+</html>

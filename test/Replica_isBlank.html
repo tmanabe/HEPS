@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const id2replica = HEPS.rootReplica.id2replica;
+                if(id2replica[0].isBlank()) {
+                    return "Replica#isBlank failed (0)."
+                }
+                if(!id2replica[1].isBlank()) {
+                    return "Replica#isBlank failed (1)."
+                }
+                if(id2replica[2].isBlank()) {
+                    return "Replica#isBlank failed (2)."
+                }
+                if(id2replica[3].isBlank()) {
+                    return "Replica#isBlank failed (3)."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body>
+
+        <h1>
+            3</h1>
+</html>

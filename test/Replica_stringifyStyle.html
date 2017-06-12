@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const expect = "rgb(255, 0, 0);14;italic;400;null;/body/#text;underline";
+                if(expect !== HEPS.rootReplica[0].stringifyStyle()) {
+                    return "Replica#stringifyStyle failed."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body style="color: red; font-size: 10.5pt; font-style: italic; font-weight: normal; text-decoration: underline">Dummy</body>
+</html>
