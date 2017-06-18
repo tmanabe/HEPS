@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const reason = "Too much content as a heading;";
+                if(HEPS.nodeLists[0].isFilteredBy.indexOf(reason) < 0) {
+                    return "The construction is failed."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body>
+        <h1>h1-00</h1>
+        <p>0</p>
+        <h1>h1-01</h1>
+        <p>1</p>
+        <h1>h1-02</h1>
+        <p>2</p>
+    </body>
+</html>

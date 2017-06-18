@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const subject = new HEPS.MyArray([]);
+                if (0 < subject.getFrontNodes().length) {
+                    return "MyArray#getFrontNodes failed."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body></body>
+</html>

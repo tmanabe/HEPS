@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const reason = "No sibling candidates;";
+                if(HEPS.nodeLists[1].isFilteredBy.indexOf(reason) < 0) {
+                    return "The construction is failed."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body>
+        <h1>h1-0</h1>
+            <h2>h2-0</h2>
+            #text-0
+        <h1>h1-1</h1>
+            <h2>h2-1</h2>
+            #text-1
+        <h1>h1-2</h1>
+            <h2>h2-2</h2>
+            #text-2
+    </body>
+</html>

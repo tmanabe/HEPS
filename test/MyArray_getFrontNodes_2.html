@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const subject = HEPS.nodeLists[0];
+                if ("div" !== subject[0].frontNode.name) {
+                    return "MyArray#getFrontNodes failed (0)."
+                }
+                if ("div" !== subject[1].frontNode.name) {
+                    return "MyArray#getFrontNodes failed (1)."
+                }
+                if ("div" !== subject.frontNodes[0].name) {
+                    return "MyArray#getFrontNodes failed (2)."
+                }
+                if ("div" !== subject.frontNodes[1].name) {
+                    return "MyArray#getFrontNodes failed (3)."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body><div><h1>h1-0</h1></div><div><h1>h1-1</h1></div></body>
+</html>

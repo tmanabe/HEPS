@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                if("div-0" !== HEPS.nodeLists[0][0].content) {
+                    return "The sorting is failed (0)."
+                }
+                if("h1-0" !== HEPS.nodeLists[1][0].content) {
+                    return "The sorting is failed (1)."
+                }
+                if("h2-0" !== HEPS.nodeLists[2][0].content) {
+                    return "The sorting is failed (2)."
+                }
+                if("h2-4" !== HEPS.nodeLists[3][0].content) {
+                    return "The sorting is failed (3)."
+                }
+                if("h2-2" !== HEPS.nodeLists[4][0].content) {
+                    return "The sorting is failed (4)."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <h2 style="font-weight: normal; color: red">h2-4</h2>
+            <h2 style="font-weight: normal; color: red">h2-5</h2>
+            <h2 style="font-weight: normal">h2-2</h2>
+            <h2 style="font-weight: normal">h2-3</h2>
+            <h2>h2-0</h2>
+            <h2>h2-1</h2>
+            <h1>h1-0</h1>
+            <h1>h1-1</h1>
+        </div>
+        <div>div-0</div>
+        <div>div-1</div>
+
+    </body>
+</html>

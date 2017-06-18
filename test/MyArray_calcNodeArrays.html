@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const subject0 = HEPS.rootBlock.children[0].children[0];
+                if (2 !== subject0.nodeArray.length) {
+                    return "MyArray#calcNodeArrays failed (0).";
+                }
+                const subject1 = HEPS.rootBlock.children[1].children[0];
+                if (1 !== subject1.nodeArray.length) {
+                    return "MyArray#calcNodeArrays failed (1).";
+                }
+                const subject2 = HEPS.rootBlock.children[1].children[1];
+                if (1 !== subject2.nodeArray.length) {
+                    return "MyArray#calcNodeArrays failed (2).";
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <div>
+                <h1>h1-0</h1>
+            </div>
+            <div>
+                <h2>h2-0</h2>
+            </div>
+            <div>
+                The next sibling is a node including a heading.
+            </div>
+            <div>
+                <h1>h1-1</h1>
+            </div>
+            <div>
+                <h2>h2-1</h2>
+                The next sibling is another front node of the same style.
+            </div>
+            <div>
+                <h2>h2-2</h2>
+                There is no following sibling.
+            </div>
+        </body>
+</html>

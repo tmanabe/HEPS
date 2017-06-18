@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function testHEPS(HEPS) {
+                const subject = HEPS.nodeLists[0];
+                if (HEPS.rootReplica != subject.frontNodes[0]) {
+                    return "MyArray#getFrontNodes failed."
+                }
+                return "success";
+            }
+        </script>
+    </head>
+    <body><h1>h1</h1></body>
+</html>
